@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build All C Files",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${workspaceFolder}\\*.c",
+                "-o",
+                "${workspaceFolder}\\puntodeventa.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Portable build task relying on system PATH."
+        }
+    ]
+}
