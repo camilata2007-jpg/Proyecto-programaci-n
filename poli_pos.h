@@ -124,7 +124,7 @@ void  accesoDenegado(void);
 int   rolTieneAcceso(int rol, int modulo);               
 void  liberarListas(void);                                
  
-
+//Prototipo productos
 void      guardarProductos(void);                        
 void      cargarProductos(void);                          
 Producto *buscarProductoSecuencial(int codigo);           
@@ -135,7 +135,7 @@ void      editarProducto(void);
 void      eliminarProducto(void);
 void      listarProductos(void);
  
-
+//Prototipo Movimientos
 void respaldarMovimiento(Movimiento movimiento);          
 void ajustarStock(int *stock, int cantidad);              
 void registrarMovimientoInventario(Producto *producto, const char *tipo,
