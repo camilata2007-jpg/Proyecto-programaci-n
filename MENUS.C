@@ -16,7 +16,7 @@ int menuPortalCliente(void) {
         if (opcion == 1) listarProductos();         
         else if (opcion == 2) verMisCompras();
         else if (opcion == 0 || opcion == 7) return opcion;
-        else printf("  >> Opcion invalida.\n");
+        else printf(" Opcion invalida.\n");
     }
 }
  
@@ -39,7 +39,7 @@ void menuProductos(int rol) {
         printf(" 2) Listar productos\n");
         printf(" 3) Editar / actualizar producto\n");
         printf(" 4) Eliminar producto\n");
-        printf(" 5) Buscar por codigo (busqueda binaria)\n");
+        printf(" 5) Buscar por codigo\n");
         printf(" 0) Volver\n");
         int opcion = leerEnteroEnRango("Opcion: ", 0, 5);
         if (opcion == 0) return;
@@ -50,7 +50,7 @@ void menuProductos(int rol) {
         else if (opcion == 5) {
             int codigo = leerEnteroPositivo("  Codigo: ");
             Producto *encontrado = buscarProductoBinaria(codigo); 
-            if (encontrado == NULL) printf("  >> No encontrado.\n");
+            if (encontrado == NULL) printf(" No encontrado.\n");
             else printf("  Encontrado (binaria): %s | Precio %.2f | Stock %d | IVA %d%%\n",
                         encontrado->nombre, encontrado->precio,
                         encontrado->stock, encontrado->iva);

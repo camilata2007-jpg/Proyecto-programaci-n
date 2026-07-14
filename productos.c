@@ -31,7 +31,7 @@ void cargarProductos(void)
         Producto *nuevo = (Producto *)malloc(sizeof(Producto)); 
         if (nuevo == NULL) 
         { 
-            printf("  >> Sin memoria.\n"); break; 
+            printf(" Sin memoria.\n"); break; 
         }
         *nuevo = leido;    
         nuevo->siguiente = NULL;
@@ -123,13 +123,13 @@ void registrarProducto(void)
         nuevo->codigo = leerEnteroPositivo("  Codigo del producto: ");
         if (buscarProductoSecuencial(nuevo->codigo) == NULL) 
         break;
-        printf("  >> Ya existe un producto con ese codigo.\n");
+        printf(" Ya existe un producto con ese codigo.\n");
     }
 
     leerCadena("  Nombre: ", nuevo->nombre, TAM_NOMBRE);
     while (strlen(nuevo->nombre) == 0)
     {
-        leerCadena("  Nombre (no vacio): ", nuevo->nombre, TAM_NOMBRE);
+        leerCadena("  Nombre: ", nuevo->nombre, TAM_NOMBRE);
     }
     nuevo->precio = redondear2(leerDineroPositivo("  Precio unitario (USD): ")); 
     nuevo->stock = leerEnteroPositivo("  Stock inicial: ");                     
@@ -160,7 +160,7 @@ if (producto == NULL)
     producto->stockMinimo = leerEnteroPositivo("  Nuevo stock minimo: ");
     producto->iva = leerIVA();                                               
     guardarProductos();                                                   
-    printf("  >> Producto actualizado en el archivo binario.\n");
+    printf(" Producto actualizado en el archivo binario.\n");
 }
  
 //FUNCION PARA ELIMINAR UN PRODUCTO DE LA LISTA Y DEL ARCHIVO:
@@ -175,7 +175,7 @@ while (actual != NULL && actual->codigo != codigo)
 }
     if (actual == NULL) 
     { 
-        printf("  >> Producto no encontrado.\n"); 
+        printf(" Producto no encontrado.\n"); 
 
     return; 
     }
