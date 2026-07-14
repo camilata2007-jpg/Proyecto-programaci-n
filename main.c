@@ -61,7 +61,7 @@ int main(void) {
         else if (opcion == 7) rol = iniciarSesion();
         else {                                    
             liberarListas();                      
-            printf("\n>> Gracias por usar POLI POS. Datos guardados.\n");
+            printf("\n Gracias por usar POLI POS. Datos guardados.\n");
             return 0;
         }
     }

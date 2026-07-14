@@ -13,14 +13,14 @@ void cargarCaja(void) {
     FILE *archivo = fopen(ARCH_CAJA, "rb");
     if (archivo == NULL) return;
     if (fread(&caja, sizeof(EstadoCaja), 1, archivo) != 1)
-        printf("  >> Aviso: no se pudo leer el estado previo de la caja.\n");
+        printf(" Aviso: no se pudo leer el estado previo de la caja.\n");
     fclose(archivo);
 }
  
 // APERTURA: solo pide el MONTO inicial q estrictamente positivo 
 void abrirCaja(void) {
     if (caja.abierta) {
-        printf("  >> La caja YA esta abierta con %.2f USD.\n", caja.montoApertura);
+        printf(" La caja YA esta abierta con %.2f USD.\n", caja.montoApertura);
         return;
     }
     printf("\n--- APERTURA DE CAJA ---\n");
@@ -28,7 +28,7 @@ void abrirCaja(void) {
     caja.idVentaInicio = siguienteIdVenta;  
     caja.abierta = 1;
     guardarCaja();                         
-    printf("  >> Caja ABIERTA con %.2f USD.\n", caja.montoApertura);
+    printf(" Caja ABIERTA con %.2f USD.\n", caja.montoApertura);
 }
  
 //total en dolares de las ventas del turno (id >= idInicio).
@@ -48,7 +48,7 @@ int contarVentasDesdeIdRec(Venta *nodo, int idInicio) {
  
 //CIERRE: muestra el CONSOLIDADO del turno por consola y lo respalda
 void cerrarCaja(void) {
-    if (!caja.abierta) { printf("  >> La caja no esta abierta.\n"); return; }
+    if (!caja.abierta) { printf(" La caja no esta abierta.\n"); return; }
     printf("\n--- CIERRE DE CAJA ---\n");
     //el consolidado se calcula con subprogramas RECURSIVOS 
     int   ventasDelTurno   = contarVentasDesdeIdRec(listaVentas, caja.idVentaInicio);
@@ -72,5 +72,5 @@ void cerrarCaja(void) {
     caja.montoApertura = 0.0f;
     caja.idVentaInicio = 0;
     guardarCaja();
-    printf("  >> Caja CERRADA correctamente.\n");
+    printf(" Caja CERRADA correctamente.\n");
 }

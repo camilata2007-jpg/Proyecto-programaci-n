@@ -6,7 +6,7 @@ void respaldarMovimiento(Movimiento movimiento)
     FILE *archivo = fopen(ARCH_INVENTARIO, "ab");
     if (archivo == NULL) 
     { 
-        printf("  >> Error al abrir %s\n", ARCH_INVENTARIO); 
+        printf(" Error al abrir %s\n", ARCH_INVENTARIO); 
     return; 
     }
     fwrite(&movimiento, sizeof(Movimiento), 1, archivo);
@@ -104,7 +104,7 @@ void consultarHistoricoInventario(void)
     FILE *archivo = fopen(ARCH_INVENTARIO, "rb");
     if (archivo == NULL) 
     { 
-        printf("  >> No existen movimientos registrados.\n"); 
+        printf(" No existen movimientos registrados.\n"); 
     return; 
     }
     Movimiento movimiento;

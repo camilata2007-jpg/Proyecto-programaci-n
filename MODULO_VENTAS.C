@@ -4,7 +4,7 @@
 //Guarda todas las ventas en el archivo binario
 void guardarVentas(void) {
     FILE *archivo = fopen(ARCH_VENTAS, "wb");
-    if (archivo == NULL) { printf("  >> Error al abrir %s\n", ARCH_VENTAS); return; }
+    if (archivo == NULL) { printf("  Error al abrir %s\n", ARCH_VENTAS); return; }
     Venta *venta;
     for (venta = listaVentas; venta != NULL; venta = venta->siguiente)
         fwrite(venta, sizeof(Venta), 1, archivo);
@@ -98,7 +98,7 @@ void registrarVenta(void) {
     while (1) {
         porcentajeDescuento = leerFlotante("  Descuento % (0 a 100): ");
         if (porcentajeDescuento >= 0.0f && porcentajeDescuento <= 100.0f) break;
-        printf("  >> Descuento invalido: debe estar entre 0 y 100.\n");
+        printf(" Descuento invalido: debe estar entre 0 y 100.\n");
     }
     
     Venta *venta = (Venta *)malloc(sizeof(Venta));            
@@ -118,7 +118,7 @@ void registrarVenta(void) {
     venta->valorIVA       = redondear2(baseImponible * producto->iva / 100.0f);
     venta->total          = redondear2(baseImponible + venta->valorIVA);
     if (venta->total <= 0.0f) {   
-        printf("  >> Total invalido (%.2f). Venta cancelada.\n", venta->total);
+        printf(" Total invalido (%.2f). Venta cancelada.\n", venta->total);
         free(venta);
         return;
     }
@@ -130,7 +130,7 @@ void registrarVenta(void) {
     guardarVentas();
    
     imprimirFactura(venta);
-    printf("  >> Venta registrada. Stock restante de '%s': %d\n",
+    printf(" Venta registrada. Stock restante de '%s': %d\n",
            producto->nombre, producto->stock);
 }
  
@@ -153,12 +153,12 @@ void buscarVentasPorCliente(void) {
             imprimirVenta(venta);
             encontradas++;
         }
-    if (!encontradas) printf("  >> No hay ventas para ese cliente.\n");
+    if (!encontradas) printf(" No hay ventas para ese cliente.\n");
 }
  
 //Listado completo de ventas
 void listarVentas(void) {
-    if (listaVentas == NULL) { printf("  >> No hay ventas registradas.\n"); return; }
+    if (listaVentas == NULL) { printf(" No hay ventas registradas.\n"); return; }
     Venta *venta;
     for (venta = listaVentas; venta != NULL; venta = venta->siguiente)
         imprimirVenta(venta);
@@ -174,5 +174,5 @@ void verMisCompras(void) {
             imprimirVenta(venta);
             encontradas++;
         }
-    if (!encontradas) printf("  >> Aun no tiene compras registradas.\n");
+    if (!encontradas) printf(" Aun no tiene compras registradas.\n");
 }

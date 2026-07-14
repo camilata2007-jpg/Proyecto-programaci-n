@@ -6,7 +6,7 @@ void guardarClientes(void)
     FILE *archivo = fopen(ARCH_CLIENTES, "wb");
     if (archivo == NULL) 
     { 
-        printf("  >> Error al abrir %s\n", ARCH_CLIENTES); 
+        printf("  Error al abrir %s\n", ARCH_CLIENTES); 
 
     return; 
     }
@@ -70,7 +70,7 @@ Cliente *registrarCliente(void)
     char cedula[TAM_CEDULA];
     printf("\n--- REGISTRO DE CLIENTE ---\n");
     while (1) {
-        leerCadena("  Cedula (10 digitos, Ecuador): ", cedula, TAM_CEDULA);
+        leerCadena("  Cedula ecuatorina : ", cedula, TAM_CEDULA);
         if (!validarCedulaEcuatoriana(cedula)) 
         {            
             printf("  >> Cedula ecuatoriana INVALIDA.\n");
@@ -97,7 +97,7 @@ Cliente *registrarCliente(void)
     nuevo->siguiente = listaClientes;                     
     listaClientes = nuevo;
     guardarClientes();                                  
-    printf("  >> Cliente registrado y guardado.\n");
+    printf(" Cliente registrado y guardado.\n");
     return nuevo;
 }
  
@@ -109,7 +109,7 @@ void buscarClienteMenu(void)
     Cliente *cliente = buscarClientePorCedula(cedula);
     if (cliente == NULL) 
     { 
-        printf("  >> Cliente no encontrado.\n"); 
+        printf(" Cliente no encontrado.\n"); 
 
     return; 
  }
@@ -144,7 +144,7 @@ void eliminarCliente(void)
     }
     if (actual == NULL) 
     { 
-        printf("  >> Cliente no encontrado.\n"); 
+        printf(" Cliente no encontrado.\n"); 
         
     return; 
     }
@@ -152,5 +152,5 @@ void eliminarCliente(void)
     else anterior->siguiente = actual->siguiente;        
     free(actual);
     guardarClientes();
-    printf("  >> Cliente eliminado.\n");
+    printf(" Cliente eliminado.\n");
 }

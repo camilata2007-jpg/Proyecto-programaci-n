@@ -8,7 +8,7 @@ void limpiarBuffer(void) {
 void leerCadena(const char *mensaje, char *destino, int tamanio) {
     printf("%s", mensaje);
     if (fgets(destino, tamanio, stdin) == NULL) {   
-        printf("\n>> Entrada finalizada. Cerrando el sistema de forma segura.\n");
+        printf("\n Entrada finalizada. Cerrando el sistema de forma segura.\n");
         exit(EXIT_SUCCESS);
     }
     size_t longitud = strlen(destino);
@@ -24,7 +24,7 @@ int leerEntero(const char *mensaje) {
     while (1) {
         leerCadena(mensaje, linea, sizeof(linea));
         if (sscanf(linea, "%d", &valor) == 1) return valor;
-        printf("  >> Entrada invalida. Ingrese un numero entero.\n");
+        printf(" Entrada invalida. Ingrese un numero entero.\n");
     }
 }
 
@@ -34,7 +34,7 @@ int leerEnteroPositivo(const char *mensaje) {
     while (1) {
         valor = leerEntero(mensaje);
         if (valor > 0) return valor;
-        printf("  >> El valor debe ser MAYOR a cero (no se aceptan negativos ni cero).\n");
+        printf(" El valor debe ser MAYOR a cero .\n");
     }
 }
 
@@ -44,7 +44,7 @@ int leerEnteroEnRango(const char *mensaje, int minimo, int maximo) {
     while (1) {
         valor = leerEntero(mensaje);
         if (valor >= minimo && valor <= maximo) return valor;
-        printf("  >> Opcion fuera de rango (%d - %d).\n", minimo, maximo);
+        printf(" Opcion fuera de rango (%d - %d).\n", minimo, maximo);
     }
 }
 
@@ -65,7 +65,7 @@ float leerDineroPositivo(const char *mensaje) {
     while (1) {
         valor = leerFlotante(mensaje);
         if (valor > 0.0f) return valor;
-        printf("  >> Monto invalido: el dinero debe ser MAYOR a cero.\n");
+        printf(" Monto invalido: el dinero debe ser MAYOR a cero.\n");
     }
 }
 
@@ -90,7 +90,7 @@ void leerFecha(const char *mensaje, char *destino) {
     while (1) {
         leerCadena(mensaje, destino, TAM_FECHA);
         if (esFechaValida(destino)) return;
-        printf("  >> Fecha invalida. Use el formato AAAA-MM-DD.\n");
+        printf(" Fecha invalida. Use el formato AAAA-MM-DD.\n");
     }
 }
 
@@ -120,7 +120,7 @@ int leerIVA(void) {
         porcentaje = leerEntero("  IVA del producto en % (solo 0, 12 o 15): ");
         if (porcentaje == 0 || porcentaje == 12 || porcentaje == 15)
             return porcentaje;
-        printf("  >> IVA invalido: los unicos valores permitidos son 0, 12 y 15.\n");
+        printf(" IVA invalido: los unicos valores permitidos son 0, 12 y 15.\n");
     }
 }
 

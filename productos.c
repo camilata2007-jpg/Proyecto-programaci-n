@@ -6,7 +6,7 @@ void guardarProductos(void)
     FILE *archivo = fopen(ARCH_PRODUCTOS, "wb");  
     if (archivo == NULL) 
     { 
-        printf("  >> Error al abrir %s\n", ARCH_PRODUCTOS); return; 
+        printf(" Error al abrir %s\n", ARCH_PRODUCTOS); return; 
     }
     Producto *producto = listaProductos;
     while (producto != NULL) 
@@ -23,7 +23,7 @@ void cargarProductos(void)
     FILE *archivo = fopen(ARCH_PRODUCTOS, "rb");  
     if (archivo == NULL) 
     { 
-        printf("  >> Error al abrir %s\n", ARCH_PRODUCTOS); return; 
+        printf(" Error al abrir %s\n", ARCH_PRODUCTOS); return; 
     }
     Producto leido, *ultimo = NULL;
     while (fread(&leido, sizeof(Producto), 1, archivo) == 1) 
@@ -115,7 +115,7 @@ void registrarProducto(void)
 
     if (nuevo == NULL) 
     { 
-        printf("  >> Sin memoria.\n"); return; 
+        printf(" Sin memoria.\n"); return; 
     }
     printf("\n--- REGISTRO DE PRODUCTO ---\n");
     while (1) 
@@ -138,7 +138,7 @@ void registrarProducto(void)
     nuevo->siguiente = listaProductos;  
     listaProductos = nuevo;
     guardarProductos();                                                          
-    printf("  >> Producto registrado y guardado en archivo binario.\n");
+    printf(" Producto registrado y guardado en archivo binario.\n");
 }
  
 //FUNCION PARA EDITAR UN PRODUCTO EXISTENTE:
@@ -149,7 +149,7 @@ Producto *producto = buscarProductoBinaria(codigo);
     
 if (producto == NULL) 
 { 
-    printf("  >> Producto no encontrado.\n"); return; 
+    printf(" Producto no encontrado.\n"); return; 
 }
     printf("  Editando: %s (precio %.2f, stock %d, IVA %d%%)\n", producto->nombre, producto->precio, producto->stock, producto->iva);
     
@@ -183,7 +183,7 @@ while (actual != NULL && actual->codigo != codigo)
     else anterior->siguiente = actual->siguiente;             
     free(actual);                                           
     guardarProductos();                                    
-    printf("  >> Producto eliminado del sistema y del archivo.\n");
+    printf(" Producto eliminado del sistema y del archivo.\n");
 }
  
 //FUNCION PARA LISTAR TODOS LOS PRODUCTOS REGISTRADOS:
@@ -191,7 +191,7 @@ void listarProductos(void)
 {
     if (listaProductos == NULL) 
     { 
-        printf("  >> No hay productos registrados.\n"); 
+        printf(" No hay productos registrados.\n"); 
     return; 
     }
     printf("\n  %-8s %-25s %10s %8s %8s %6s\n", "Codigo", "Nombre", "Precio", "Stock", "Minimo", "IVA");

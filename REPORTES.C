@@ -55,7 +55,7 @@ void reporteVentasPorRango(void) {
             encontradas, redondear2(totalAcumulado));
     if (esArchivo) {
         fclose(salida);
-        printf("  >> Reporte exportado a reporte_ventas_rango.txt\n");
+        printf(" Reporte exportado a reporte_ventas_rango.txt\n");
     }
 }
  //funcion de ordenamiento descendente para el reporte de productos mas vendidos
@@ -72,7 +72,7 @@ void burbujaMasVendidos(ItemVendido arreglo[], int total) {
 //PRODUCTOS MAS VENDIDOS (burbuja desc., consola o .txt) 
 void reporteProductosMasVendidos(void) {
     int totalProductos = contarProductos();
-    if (totalProductos == 0) { printf("  >> No hay productos.\n"); return; }
+    if (totalProductos == 0) { printf(" No hay productos.\n"); return; }
    
     ItemVendido *items = (ItemVendido *)calloc(totalProductos, sizeof(ItemVendido));
     if (items == NULL) return;
@@ -121,7 +121,7 @@ void burbujaPorCantidad(Producto *arreglo[], int total) {
 //STOCK BAJO MINIMO, ordenado por CANTIDAD (burbuja). Consola o .txt. Es el unico reporte del Encargado de Inventario 
 void reporteStockBajo(void) {
     int totalProductos = contarProductos(), bajos = 0;
-    if (totalProductos == 0) { printf("  >> No hay productos.\n"); return; }
+    if (totalProductos == 0) { printf(" No hay productos.\n"); return; }
     
     Producto **arreglo = (Producto **)malloc(totalProductos * sizeof(Producto *));
     if (arreglo == NULL) return;
@@ -137,7 +137,7 @@ void reporteStockBajo(void) {
     burbujaPorCantidad(arreglo, bajos);                   
     int esArchivo = 0;
     FILE *salida = abrirDestinoReporte("reporte_stock_bajo.txt", &esArchivo);
-    fprintf(salida, "===== STOCK BAJO MINIMO (ordenado por cantidad) =====\n");
+    fprintf(salida, "===== STOCK BAJO MINIMO =====\n");
     fprintf(salida, "%-8s %-25s %8s %8s %10s\n", "Codigo", "Producto", "Stock", "Minimo", "Faltante");
     for (int indice = 0; indice < bajos; indice++)
         fprintf(salida, "%-8d %-25s %8d %8d %10d\n",
@@ -167,7 +167,7 @@ void seleccionRanking(ClienteRank arreglo[], int total) {
 //RANKING DE CLIENTES por monto (seleccion, consola o .txt) 
 void reporteRankingClientes(void) {
     int totalVentas = contarVentas();
-    if (totalVentas == 0) { printf("  >> No hay ventas registradas.\n"); return; }
+    if (totalVentas == 0) { printf(" No hay ventas registradas.\n"); return; }
    
     ClienteRank *ranking = (ClienteRank *)calloc(totalVentas, sizeof(ClienteRank));
     if (ranking == NULL) return;
@@ -199,6 +199,6 @@ void reporteRankingClientes(void) {
         fprintf(salida, "%-4d %-12s %-25s %8d %12.2f\n",
                 indice + 1, ranking[indice].cedula, ranking[indice].nombre,
                 ranking[indice].compras, redondear2(ranking[indice].monto));
-    if (esArchivo) { fclose(salida); printf("  >> Reporte exportado a reporte_ranking_clientes.txt\n"); }
+    if (esArchivo) { fclose(salida); printf(" Reporte exportado a reporte_ranking_clientes.txt\n"); }
     free(ranking);
 }

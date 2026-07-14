@@ -62,7 +62,7 @@ void menuProductos(int rol) {
 void menuInventario(int rol) {
     while (1) {
         printf("\n===== INVENTARIO (%s) =====\n", nombreRol(rol));
-        printf(" 1) Registrar compra (entrada)\n");
+        printf(" 1) Registrar compra \n");
         printf(" 2) Ajuste de stock\n");
         printf(" 3) Consultar historico de movimientos\n");
         printf(" 0) Volver\n");
@@ -121,7 +121,7 @@ void menuVentas(int rol) {
 void menuReportes(int rol) {
     if (rol == ROL_INVENTARIO) {
         
-        printf("\n===== REPORTES (ENCARGADO: solo stock bajo minimo) =====\n");
+        printf("\n===== REPORTES =====\n");
         reporteStockBajo();
         return;
     }
@@ -179,13 +179,13 @@ int iniciarSesion(void) {
             }
             clienteActual = buscarClientePorCedula(cedula);   
             if (clienteActual == NULL) {
-                printf(">> Cedula no registrada. Registrese a continuacion:\n");
+                printf(" Cedula no registrada. Registrese a continuacion:\n");
                 clienteActual = registrarCliente();
                 if (clienteActual == NULL) continue;
             }
             break;
         }
-        printf("\n>> Bienvenido %s, entraste como: CLIENTE\n", clienteActual->nombre);
+        printf("\n Bienvenido %s, entraste como: CLIENTE\n", clienteActual->nombre);
         return ROL_CLIENTE;
     }
  
@@ -195,18 +195,18 @@ int iniciarSesion(void) {
     while (intentosRestantes > 0) {
         leerCadena("Ingrese su contrasena: ", clave, sizeof(clave));
         if (strcmp(clave, CLAVE_ADMIN) == 0) {
-            printf("\n>> Bienvenido, entraste como: ADMINISTRADOR\n");
+            printf("\n Bienvenido, entraste como: ADMINISTRADOR\n");
             return ROL_ADMIN;
         } else if (strcmp(clave, CLAVE_CAJERO) == 0) {
-            printf("\n>> Bienvenido, entraste como: CAJERO\n");
+            printf("\n Bienvenido, entraste como: CAJERO\n");
             return ROL_CAJERO;
         } else if (strcmp(clave, CLAVE_INVENTARIO) == 0) {
-            printf("\n>> Bienvenido, entraste como: ENCARGADO DE INVENTARIO\n");
+            printf("\n Bienvenido, entraste como: ENCARGADO DE INVENTARIO\n");
             return ROL_INVENTARIO;
         }
         intentosRestantes--;
-        printf(">> Contrasena incorrecta. Intentos restantes: %d\n", intentosRestantes);
+        printf(" Contrasena incorrecta. Intentos restantes: %d\n", intentosRestantes);
     }
-    printf(">> Acceso bloqueado por seguridad. El programa terminara.\n");
+    printf(" Acceso bloqueado por seguridad. El programa terminara.\n");
     exit(EXIT_FAILURE);
 }
