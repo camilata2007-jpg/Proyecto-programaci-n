@@ -106,7 +106,7 @@ extern EstadoCaja caja;
 extern Cliente   *clienteActual;    
 extern int        siguienteIdVenta; 
  
-//Prototipos hutilidades
+//Prototipos utilidades
 void  limpiarBuffer(void);
 void  leerCadena(const char *mensaje, char *destino, int tamanio);
 int   leerEntero(const char *mensaje);

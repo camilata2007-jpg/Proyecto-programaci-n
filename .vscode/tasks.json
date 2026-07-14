@@ -6,7 +6,8 @@
             "label": "Build All C Files",
             "command": "gcc",
             "args": [
-                "-g",
+                "-Wall",
+                "-g3",
                 "${workspaceFolder}\\*.c",
                 "-o",
                 "${workspaceFolder}\\puntodeventa.exe"
@@ -21,7 +22,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Portable build task relying on system PATH."
+            "detail": "Compila todos los .c del proyecto en un solo ejecutable."
         }
     ]
 }
