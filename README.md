@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Estado-Completado-success?style=for-the-badge" alt="Completado">
 </p>
 
-**POLI POS** es una aplicación interactiva de consola desarrollada íntegramente en **Lenguaje C**. Este sistema ofrece una solución integral para la gestión robusta de un punto de venta, unificando el control riguroso de inventarios, la facturación electrónica legal, la gestión detallada de clientes y los arqueos de caja, todo ello bajo estrictos estándares de estructuras dinámicas y persistencia en archivos.
+**EL PROYECTO POLI POS** es una aplicación interactiva de consola desarrollada en **Lenguaje C**. Este sistema ofrece una solución para la gestión robusta de un punto de venta, unificando el control riguroso de inventarios, la facturación electrónica legal, la gestión detallada de clientes y los arqueos de caja, todo ello bajo estrictos estándares de estructuras dinámicas y persistencia en archivos.
 
 ---
 
